@@ -35,7 +35,7 @@ for i in range(n - 1):
         listDoubt.append(dataframeUrl.iloc[i])
 
     
-dtFinish = pd.DataFrame(websiteList, columns=['lengthUrl','domainAge','anchorUrl','abnormalURL','requestUrl','domainRegisterAge','httpsToken','haveSubdomain','hasMD5','hasSHA1','hasYara','result'])
+dtFinish = pd.DataFrame(websiteList, columns=['lengthUrl','domainAge','anchorUrl','abnormalURL','requestUrl','domainRegisterAge','httpsToken','haveSubdomain','hasMD5','hasSHA1','hasYara','hasSHA256','hasShort','hasDateTime','hasDomain','hasHostname','hasIPDst','hasIPSrc','result'])
 #print(dtFinish)
 dtFinish.to_csv('dataset-part2.csv', index_label='Ord.')
 
