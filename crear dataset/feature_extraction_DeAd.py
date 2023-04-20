@@ -235,100 +235,74 @@ class website:
         
     "#10. verificar SHA1"
     def hasSHA1(self):
-        sha1_regex = r"\b[a-fA-F\d]{40}\b"
-        match = re.search(sha1_regex, self.url)
-        if match:
+        sha1_pattern = re.compile(r'[a-fA-F\d]{40}')
+        if sha1_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#11. verificar Yara"   
     def hasYara(self):
-        yara_regex = r"\b(rule|import)\s+[a-zA-Z0-9_\.]+(\s*:\s*[a-zA-Z0-9_\.]+)?\s*\{\s*([^\{\}]|\{[^\{\}]*\})*\s*\}"
-        match = re.search(yara_regex, self.url)
-        if match:
+        yara_pattern = re.compile(r'rule\s+.+\s+\{[\s\S]*?\}')
+        if yara_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#12. verificar SHA256"
     def hasSHA256(self):
-        sha256_regex = r"\b[a-fA-F\d]{64}\b"
-        match = re.search(sha256_regex, self.url)
-        if match:
+        sha256_pattern = re.compile(r'[a-fA-F\d]{64}')
+        if sha256_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#13. verificar Short"
     def hasShort(self):
         if "short" in self.url:
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#14. verificar dataTime"
     def hasDateTime(self):
-        datetime_regex = r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}"
-        match = re.search(datetime_regex, self.url)
-        if match:
+        datetime_pattern = re.compile(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z')
+        if datetime_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#15. verificar Domain"
     def hasDomain(self):
-        domain_regex = r"(?<=://)[\w\.-]+"
-        match = re.search(domain_regex, self.url)
-        if match:
+        domain_pattern = re.compile(r'^[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}$')
+        if domain_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#16. verificar hostname"
     def hasHostname(self):
-        hostname_regex = r"^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$"
-        match = re.search(hostname_regex, self.url)
-        if match:
+        hostname_pattern = re.compile(r'^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$')
+        if hostname_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#17. verificar IPDSt"    
     def hasIPDst(self):
-        ip_regex = r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
-        match = re.search(ip_regex, self.url)
-        if match:
+        ip_pattern = re.compile(r'^([0-9]{1,3}\.){3}[0-9]{1,3}$')
+        if ip_pattern.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "#18. verificar IPDSt"
     def hasIPSrc(self):
-        ip_src_regex = r"\b(?:\d{1,3}\.){3}\d{1,3}\b(?:/\d{1,2})?\b"
-        match = re.search(ip_src_regex, self.url)
-        if match:
+        ip_src_regex = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b(?:/\d{1,2})?\b")
+        if ip_src_regex.search(self.url):
             return 1
-        elif not self.url:
-            return -1
         else:
-            return 0
+            return -1
 
     "Reunir todas las características"
     def getFeatures(self):
