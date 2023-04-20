@@ -298,7 +298,7 @@ class website:
             return 0
 
     "#16. verificar hostname"
-        def hasHostname(self):
+    def hasHostname(self):
         hostname_regex = r"^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$"
         match = re.search(hostname_regex, self.url)
         if match:
@@ -352,7 +352,7 @@ class website:
                 self.features.append(self.hasSHA1())
                 self.features.append(self.hasYara())
                 self.features.append(self.hasSHA256())
-                self.features.append(self.hasDataTime())
+                self.features.append(self.hasDateTime())
                 self.features.append(self.hasDomain())
                 self.features.append(self.hasHostname())
                 self.features.append(self.hasIPDst())

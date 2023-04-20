@@ -2,7 +2,7 @@
 """
 Created on Thu Oct 20 11:11:30 2022
 
-@author: Mishell
+@authors: Dennis - Adrian
 """
 
 # LIBRERÍAS A UTILIZAR
@@ -26,4 +26,24 @@ for i in range(n - 1):
     if dataframeUrl.iloc[i]['result'] == 0:
         label = 1
     else:
-        label = -1a
+        label = -1
+    aux = feature_extraction_DeAd.website(dataframeUrl.iloc[i]['url'], label)
+    aux.getFeatures()
+    if aux.doubt == 0:
+        websiteList.append(aux.features)
+    else:
+        listDoubt.append(dataframeUrl.iloc[i])
+
+    
+dtFinish = pd.DataFrame(websiteList, columns=['lengthUrl','domainAge','anchorUrl','abnormalURL','requestUrl','domainRegisterAge',
+                                              'httpsToken','haveSubdomain','hasMD5','hasSHA1','hasYara','hasSHA256','hasDateTime',
+                                              'hasDomain','hasHostname','hasIPDst','hasIPSrc','result'])
+#print(dtFinish)
+dtFinish.to_csv('dataset-part2.csv', index_label='Ord.')
+
+##
+print('Lista de url que dieron problemas: ')
+print(listDoubt)
+
+#Ver los primeros
+##print(dataframeUrl) 
