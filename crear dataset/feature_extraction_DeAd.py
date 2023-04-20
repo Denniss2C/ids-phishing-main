@@ -298,15 +298,11 @@ class website:
             return 0
 
     "#16. verificar hostname"
-    def hasHostname(url):
-        parsed_url = urlparse(url)
-        if parsed_url.netloc:
-            hostname_regex = r"^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
-            match = re.search(hostname_regex, parsed_url.netloc)
-            if match:
-                return 1
-            else:
-                return 0
+        def hasHostname(url):
+        hostname_regex = r"^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$"
+        match = re.search(hostname_regex, url)
+        if match:
+            return 1
         elif not url:
             return -1
         else:
