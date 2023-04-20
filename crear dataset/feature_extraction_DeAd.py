@@ -258,74 +258,74 @@ class website:
     "#12. verificar SHA256"
     def hasSHA256(self):
         sha256_regex = r"\b[a-fA-F\d]{64}\b"
-        match = re.search(sha256_regex, url)
+        match = re.search(sha256_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#13. verificar Short"
     def hasShort(self):
-        if "short" in url:
+        if "short" in self.url:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#14. verificar dataTime"
-    def hasDateTime(url):
+    def hasDateTime(self):
         datetime_regex = r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}"
-        match = re.search(datetime_regex, url)
+        match = re.search(datetime_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#15. verificar Domain"
-    def hasDomain(url):
+    def hasDomain(self):
         domain_regex = r"(?<=://)[\w\.-]+"
-        match = re.search(domain_regex, url)
+        match = re.search(domain_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#16. verificar hostname"
-        def hasHostname(url):
+        def hasHostname(self):
         hostname_regex = r"^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$"
-        match = re.search(hostname_regex, url)
+        match = re.search(hostname_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#17. verificar IPDSt"    
-    def hasIPDst(url):
+    def hasIPDst(self):
         ip_regex = r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
-        match = re.search(ip_regex, url)
+        match = re.search(ip_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
 
     "#18. verificar IPDSt"
-    def hasIPSrc(url):
+    def hasIPSrc(self):
         ip_src_regex = r"\b(?:\d{1,3}\.){3}\d{1,3}\b(?:/\d{1,2})?\b"
-        match = re.search(ip_src_regex, url)
+        match = re.search(ip_src_regex, self.url)
         if match:
             return 1
-        elif not url:
+        elif not self.url:
             return -1
         else:
             return 0
