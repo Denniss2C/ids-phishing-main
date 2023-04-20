@@ -1,0 +1,19 @@
+{
+    "name": "Hunter Phisher",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Es un sistema de detección de phishing en sitios web.",
+    "permissions":["scripting","tabs"],
+    "host_permissions":[
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "128": "images/logo.png"
+    },
+    "action":{
+        "default_icon":"images/logo.png",
+        "default_title":"Hunter Phisher",
+        "default_popup":"index.html"
+    }
+}

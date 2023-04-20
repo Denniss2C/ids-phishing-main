@@ -1,0 +1,59 @@
+body {
+    width: 300px;
+    height: 220px;
+    background-color:white;
+    margin: 0px;
+}
+
+h2{
+    color: #24272a;
+    text-align:right;
+}
+
+.logo{
+    height: 50px;
+}
+
+.loading-gif, .imgResult {
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;
+}
+
+h3 {
+    color: #24272a;
+    text-align: center;
+}
+
+.url-web {
+    color: #24272a;
+    padding: 10px;
+}
+
+.header {
+    width: 100%;
+    background-color: #f2f4f6;
+    position: relative;
+    z-index: 12;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 0 auto;
+
+}
+
+.headerContents {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+.headerLogoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    margin: 10px;
+}
