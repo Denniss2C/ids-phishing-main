@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 """
-Created on Thu Oct 20 11:11:30 2022
-
 @authors: Dennis - Adrian
+
 """
 
 # LIBRERÍAS A UTILIZAR
@@ -11,7 +9,11 @@ import pandas as pd
 import feature_extraction_DeAd
 
 #IMPORTAMOS LOS DATOS
-datasetUrl = pd.read_csv('/Users/denniscaisa/Desktop/DENNIS/TITULACION/Codigo DA/ids-phishing-main/crear dataset/ok-part1 copy.csv')
+try:
+    datasetUrl = pd.read_csv('/Users/denniscaisa/Desktop/DENNIS/TITULACION/Codigo DA/ids-phishing-main/crear dataset/DataSetLegitime-DA.csv')
+except pd.errors.ParserError as e:
+    print(f"Error al leer el archivo CSV: {e}")
+    datasetUrl = pd.DataFrame()
 
 dataframeUrl = pd.DataFrame(data = datasetUrl)
 
@@ -34,16 +36,11 @@ for i in range(n - 1):
     else:
         listDoubt.append(dataframeUrl.iloc[i])
 
-    
 dtFinish = pd.DataFrame(websiteList, columns=['lengthUrl','domainAge','anchorUrl','abnormalURL','requestUrl','domainRegisterAge',
                                               'httpsToken','haveSubdomain','hasMD5','hasSHA1','hasYara','hasSHA256','hasDateTime',
                                               'hasDomain','hasHostname','hasIPDst','hasIPSrc','result'])
-#print(dtFinish)
-dtFinish.to_csv('dataset-part2.csv', index_label='Ord.')
 
-##
+dtFinish.to_csv('dataset-DAk.csv', index_label='Ord.')
+
 print('Lista de url que dieron problemas: ')
 print(listDoubt)
-
-#Ver los primeros
-##print(dataframeUrl) 
