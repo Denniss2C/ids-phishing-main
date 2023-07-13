@@ -10,7 +10,7 @@ import feature_extraction_DeAd
 
 #IMPORTAMOS LOS DATOS
 try:
-    datasetUrl = pd.read_csv('/Users/denniscaisa/Desktop/DENNIS/TITULACION/Codigo DA/ids-phishing-main/crear dataset/DataSetLegitime-DA.csv')
+    datasetUrl = pd.read_csv('/Users/denniscaisa/Desktop/DENNIS/TITULACION/Codigo DA/ids-phishing-main/crear dataset/100Extras.csv')
 except pd.errors.ParserError as e:
     print(f"Error al leer el archivo CSV: {e}")
     datasetUrl = pd.DataFrame()
@@ -36,11 +36,13 @@ for i in range(n - 1):
     else:
         listDoubt.append(dataframeUrl.iloc[i])
 
-dtFinish = pd.DataFrame(websiteList, columns=['lengthUrl','domainAge','anchorUrl','abnormalURL','requestUrl','domainRegisterAge',
-                                              'httpsToken','haveSubdomain','hasMD5','hasSHA1','hasYara','hasSHA256','hasDateTime',
+dtFinish = pd.DataFrame(websiteList, columns=['haveIp', 'lengthUrl','haveAtSymbol','sslState','domainAge','slashDouble','anchorUrl','prefixSuffix','linksInTags','clicRigth',
+                                              'windowsPopUp', 'favicon','abnormalURL','iframe','dnsRegister','googleIndex','port','requestUrl','sfh','websiteForwarding',
+                                              'mouseOver','webTraffic', 'shorterService','domainRegisterAge','httpsToken','emailInformation','pageRank','staticalInform','haveSubdomain','linksToPage',
+                                              'hasMD5','hasSHA1','hasYara','hasSHA256','hasShort','hasDateTime',
                                               'hasDomain','hasHostname','hasIPDst','hasIPSrc','result'])
 
-dtFinish.to_csv('dataset-DAk.csv', index_label='Ord.')
+dtFinish.to_csv('Dataset_Legitime_40Features_100mas.csv', index_label='Ord.')
 
 print('Lista de url que dieron problemas: ')
 print(listDoubt)

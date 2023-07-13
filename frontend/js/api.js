@@ -22,7 +22,7 @@ getCurrentTab()
         const image = document.createElement('img');
         image.className="imgResult";
         // send post request
-        fetch('https://kevinjair11.pythonanywhere.com/predict', options)
+        fetch('http://george246.pythonanywhere.com/predict', options)
             .then(res => res.json())
             .then(res => {
                 let result;
