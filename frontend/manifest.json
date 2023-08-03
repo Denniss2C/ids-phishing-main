@@ -1,5 +1,5 @@
 {
-    "name": "Hunter Phisher",
+    "name": "Phishing Impact",
     "version": "1.0",
     "manifest_version": 3,
     "description": "Es un sistema de detección de phishing en sitios web.",
@@ -13,7 +13,7 @@
     },
     "action":{
         "default_icon":"images/logo.png",
-        "default_title":"Hunter Phisher",
+        "default_title":"Phishing Impact",
         "default_popup":"index.html"
     }
 }
